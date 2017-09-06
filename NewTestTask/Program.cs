@@ -27,6 +27,7 @@ namespace NewTestTask
             try
             {
                 // reading from file
+                //ReadFile();
                 using (StreamReader sr = new StreamReader(path))
                 {
                     //str = await sr.ReadToEndAsync();
@@ -67,6 +68,7 @@ namespace NewTestTask
                 }
 
                 //writing to file
+                //WriteFile();
                 using (StreamWriter sw = new StreamWriter(pathRes + fileName))
                 {
 
