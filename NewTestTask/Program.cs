@@ -14,51 +14,48 @@ namespace NewTestTask
         {
             Task();
         }
+        
         static void Task()
         {
             string path = @"TestTask.txt";
             string str = "";
-            
+
             string fileName = @"\TaskResult.txt";
-            var pathRes = Environment.CurrentDirectory;
+            string pathRes = Environment.CurrentDirectory;
 
-            Dictionary<string, string> SortedDict = new Dictionary<string, string>();
-
+            
             try
             {
                 // reading from file
-                //ReadFile();
                 using (StreamReader sr = new StreamReader(path))
                 {
-                    //str = await sr.ReadToEndAsync();
                     str = sr.ReadToEnd();
-                    //Console.WriteLine(str);
                 }
-                //
-                var nstr = str.ToLower();
+                
+                var nstr = str.ToLower();       //to lower case
 
                 string pattern = @"[a-zA-Z0-9^']+";
-                var res = Regex.Matches(nstr, pattern);
+                var res = Regex.Matches(nstr, pattern); // split on words
 
                 List<string> l = new List<string>();
                 foreach (var v in res)
                 {
                     l.Add(v.ToString());
-
                 }
 
-                var indexes = l.Select((item, index) => new { Item = item, Index = index + 1 });
-                var sorted = indexes.OrderBy(k => k.Item);
+                var indexes = l.Select((item, index) => new { Item = item, Index = index + 1 });    //making pairs of word and number of string 
+                var sorted = indexes.OrderBy(k => k.Item);  //alphabetical sorting
 
+                Dictionary<string, string> SortedDict = new Dictionary<string, string>();
                 foreach (var r in sorted)
                 {
-                    if (!SortedDict.ContainsKey(r.Item))
-                    {
+                    if (!SortedDict.ContainsKey(r.Item))                //if dictionary not contains the word, write word 
+                    {                                                   //to dictionary like Key and number of string like Value
                         SortedDict.Add(r.Item, r.Index.ToString());
                     }
                     else
-                    {
-                        string value = "";
+                    {                                                           //if dictionary already contains the word,
+                        string value = "";                                      //write to Value last and new string numbers join
 
                         var tr = SortedDict.TryGetValue(r.Item, out value);
 
@@ -68,48 +65,20 @@ namespace NewTestTask
                 }
 
                 //writing to file
-                //WriteFile();
-                using (StreamWriter sw = new StreamWriter(pathRes + fileName))
+               using (StreamWriter sw = new StreamWriter(pathRes + fileName))
                 {
-
                     foreach (var res1 in SortedDict)
                     {
-                        //await sw.WriteLineAsync(res1.Key + " " + res1.Value);
                         sw.WriteLineAsync(res1.Key + " - " + res1.Value);
                         Console.WriteLine(res1.Key + " - " + res1.Value);
 
                     }
                     sw.Close();
                 }
-                //
             }
-
             catch
             {
             }
-
-            /* async void ReadFile()
-             {
-                 using (StreamReader sr = new StreamReader(path))
-                 {
-                    str = await sr.ReadToEndAsync();
-                 }
-
-                 async void WriteFile()
-             {
-             using (StreamWriter sw = new StreamWriter(pathRes + fileName))
-                {
-
-                    foreach (var res1 in SortedDict)
-                    {
-                        await sw.WriteLineAsync(res1.Key + " " + res1.Value);
-                    }
-                sw.Close();
-                }
-             }
-             */
-
-
         }
     }
 }
