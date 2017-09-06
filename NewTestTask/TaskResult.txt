@@ -1,0 +1,48 @@
+4 - 32
+according - 20
+ago - 35
+and - 9, 24, 47
+axis - 55
+billion - 33
+dating - 23
+earth - 1, 29
+earth's - 36, 50, 54
+especially - 44
+evidence - 28
+formed - 30
+from - 6
+gravity - 37
+harbor - 18
+in - 13, 42
+interacts - 38
+is - 2, 58
+known - 16
+life - 19
+moon - 49
+natural - 52
+object - 12
+objects - 41
+of - 27, 56
+on - 63
+only - 11, 51
+other - 25, 40
+over - 31
+planet - 5
+planet's - 65
+producing - 60
+radiometric - 22
+rotation - 57
+satellite - 53
+seasonal - 61
+sources - 26
+space - 43
+sun - 8, 46
+surface - 66
+the - 3, 7, 10, 14, 45, 48, 64
+third - 4
+tilted - 59
+to - 17, 21
+universe - 15
+variations - 62
+with - 39
+years - 34
